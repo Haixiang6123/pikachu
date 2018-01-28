@@ -1,3 +1,5 @@
+let id;
+
 ! function () {
   let duration = 50;
 
@@ -6,7 +8,6 @@
     let styleTag = document.querySelector('#styleTag');
 
     let n = 0;
-    let id;
 
     id = setTimeout(function run() {
       n += 1;
@@ -24,6 +25,9 @@
   }
 
   $('.actions').on('click', 'button', function (event) {
+    let container = $('#code');
+    let styleTag = $('#styleTag');
+
     let $button = $(event.currentTarget); // Button
     let speed = $button.attr('data-speed');
 
@@ -40,12 +44,19 @@
       case 'fast':
         duration = 10;
         break;
+      case 'skip':
+        // Stop typing
+        window.clearTimeout(id);
+        // Set codes to tag
+        container.html(code);
+        styleTag.html(code);
+        break;
       default:
         break;
     }
   })
 
-  let code = `
+let code = `
 /*
  * Prepare Pikachu
  */
@@ -80,7 +91,11 @@
   position: absolute;
   left: 50%;
   top: 28px;
-  transform: translateX(-50%);
+  margin-left: -12px;
+}
+
+.nose:hover {
+  animation: wave .5s;
 }
 
 /*
