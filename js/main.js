@@ -1,7 +1,7 @@
 let id;
 
 ! function () {
-  let duration = 50;
+  let duration = 5;
 
   function writeCode(prefix, code, fn) {
     let container = document.querySelector('#code');
@@ -36,13 +36,13 @@ let id;
 
     switch (speed) {
       case 'slow':
-        duration = 100;
+        duration = 50;
         break;
       case 'medium':
-        duratoin = 50;
+        duratoin = 10;
         break;
       case 'fast':
-        duration = 10;
+        duration = 5;
         break;
       case 'skip':
         // Stop typing
