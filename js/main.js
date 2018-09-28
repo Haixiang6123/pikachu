@@ -1,7 +1,7 @@
 let id;
 
 ! function () {
-  let duration = 5;
+  let duration = 10;
 
   function writeCode(prefix, code, fn) {
     let container = document.querySelector('#code');
